@@ -1,0 +1,49 @@
+# Deploy Jekyll site to a GitHub Pages branch
+name: Deploy Jekyll site to a GitHub Pages branch
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  BUILD_DIR: _site # The directory where Jekyll builds the site
+  GITHUB_PAGES_BRANCH: gh-pages # The branch where the site will be deployed
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
+        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
+        with:
+          ruby-version: '3.1' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --destination "${{ env.BUILD_DIR }}"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Deploy to branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: ${{ env.GITHUB_PAGES_BRANCH }} # The branch the action should deploy to.
+          folder: ${{ env.BUILD_DIR }} # The folder the action should deploy.
+
