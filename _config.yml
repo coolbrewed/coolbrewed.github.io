@@ -53,6 +53,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-github-metadata
 
 author:
   name   : "Eric Neville"
