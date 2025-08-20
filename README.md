@@ -1,3 +1,3 @@
 # GitHub Pages test
 
-Testing how to configure GitHub Pages and Plesk to play together.
+Testing how to configure Jekyll to deploy to both GitHub Pages and Plesk.
