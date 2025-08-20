@@ -42,6 +42,13 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: debug
+        run: |
+          echo "Debugging information:"
+          echo "base_url: ${{ steps.pages.outputs.base_url }}'"
+          echo "origin: ${{ steps.pages.outputs.origin }}"
+          echo "host: ${{ steps.pages.outputs.host }}"
+          echo "base_path: ${{ steps.pages.outputs.base_path }}"
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
