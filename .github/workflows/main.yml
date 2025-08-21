@@ -62,6 +62,8 @@ jobs:
         run: bundle exec jekyll build --verbose --baseurl "/" --config _config.yml,_config-plesk.yml
         env:
           JEKYLL_ENV: production
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAGES_REPO_NWO: ${{ github.repository }}
           JEKYLL_BUILD_REVISION: ${{ github.sha }}
       - name: Commit built site back to repo
         uses: stefanzweifel/git-auto-commit-action@v5
