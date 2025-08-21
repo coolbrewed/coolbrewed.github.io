@@ -59,7 +59,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
       - name: Build with Jekyll for non-GitHub Pages
         # Builds the site without the GitHub Pages-specific configuration
-        run: bundle exec jekyll build --baseurl "/" --config _config.yml,_config-plesk.yml
+        run: bundle exec jekyll build --verbose --baseurl "/" --config _config.yml,_config-plesk.yml
         env:
           JEKYLL_ENV: production
           JEKYLL_BUILD_REVISION: ${{ github.sha }}
