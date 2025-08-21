@@ -57,7 +57,7 @@ jobs:
       - name: Upload GitHub Pages artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
-      - name: Build with Jekyll for non-GitHub Pages
+      - name: Build with Jekyll for Plesk
         # Builds the site without the GitHub Pages-specific configuration
         run: bundle exec jekyll build --baseurl "/" --config _config.yml,_config-plesk.yml
         env:
@@ -65,10 +65,11 @@ jobs:
           JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PAGES_REPO_NWO: ${{ github.repository }}
           JEKYLL_BUILD_REVISION: ${{ github.sha }}
-      - name: Commit built site back to repo
+      - name: Commit Plesk build files back to repo
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Rebuild site from ${{ github.sha }}"
+          branch: plesk
           file_pattern: '_site/'
 
   # Deployment job for GitHub Pages
