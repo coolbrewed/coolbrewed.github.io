@@ -98,7 +98,7 @@ jobs:
           fetch-depth: 0
       - name: Create and/or switch to 'other' branch
         run: |
-          git switch --create other || git switch other
+          git switch --create --orphan other || git switch other
       - name: Clean out existing files
         run: |
           git rm -rf .
