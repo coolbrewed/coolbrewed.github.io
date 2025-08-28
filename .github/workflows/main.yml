@@ -100,13 +100,9 @@ jobs:
         run: |
           git rm -rf .
           git clean -fdx
-          echo "Cleaned working directory:"
-          ls -la
       - name: Create and/or switch to 'other' branch
         run: |
           git switch --orphan other || git switch other
-          echo "Current working directory:"
-          ls -la
       - name: Download Other Hosting artifact
         uses: actions/download-artifact@v5
         with:
