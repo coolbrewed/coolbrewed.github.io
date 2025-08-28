@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Configuration for the build
-      RUBY_VERSION: 3.1 # What is the Ruby version to use?
+      RUBY_VERSION: 3.2 # What is the Ruby version to use?
       OTHER_HOSTING_URL: "https://githubpages-test.oit.gatech.edu"  # What is the URL of the site on other hosting?
       OTHER_HOSTING_BASEURL: "/" # What is the baseurl for the site on other hosting? (e.g., "/blog" if hosted at https://example.gatech.edu/blog)
       # Required environment variables for Jekyll
