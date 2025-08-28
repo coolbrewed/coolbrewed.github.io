@@ -44,6 +44,10 @@ include:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+exclude:
+  - README.md
+  - LICENSE.txt
+  - .gitignore
 
 # Plugins (previously gems:)
 plugins:
