@@ -59,6 +59,7 @@ jobs:
       - name: Create Other Hosting config file
         run: |
           echo "url: ${{ env.OTHER_HOSTING_URL }}" >> _config-other.yml
+          cat _config-other.yml
       - name: Build Jekyll for Other Hosting
         run: |
           bundle exec jekyll build --baseurl "${{ env.OTHER_HOSTING_BASEURL }}" --config _config.yml,_config-other.yml
