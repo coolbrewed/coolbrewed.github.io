@@ -101,7 +101,7 @@ jobs:
           git switch --orphan other || git switch other
       - name: Clean out existing files
         run: |
-          git rm -rf .
+          git rm -rf . || echo "No files to remove"
           git clean -fdx
       - name: Download Other Hosting artifact
         uses: actions/download-artifact@v5
