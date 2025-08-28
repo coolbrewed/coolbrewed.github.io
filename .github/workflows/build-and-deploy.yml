@@ -32,7 +32,7 @@ env:
   OTHER_HOSTING_URL: "https://githubpages-test.oit.gatech.edu" # URL for Other Hosting (e.g., "https://example.com")
   OTHER_HOSTING_BASEURL: "" # Base URL for Other Hosting (e.g., "/blog")
   OTHER_HOSTING_BRANCH: "other" # Deployment branch for Other Hosting build
-  # Required environment variables for Jekyll
+  # Required environment variables for Jekyll + example `mmistakes/minimal-mistakes` theme
   JEKYLL_ENV: production
   JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   JEKYLL_BUILD_REVISION: ${{ github.sha }}

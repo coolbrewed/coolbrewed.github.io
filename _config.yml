@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Jekyll + GitHub Pages + Plesk test
+title: Jekyll + GitHub Pages + Other Hosting test
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Testing a working approach for dual-deploying a Jekyll site to both GitHub Pages and Plesk.
+  Testing a working approach for dual-deploying a Jekyll site to both GitHub Pages and Other Hosting.
 github_username: coolbrewed
 minimal_mistakes_skin: default
 search: true
